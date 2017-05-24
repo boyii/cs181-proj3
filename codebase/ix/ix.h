@@ -90,6 +90,10 @@ class IXFileHandle {
 	// Put the current counter values of associated PF FileHandles into variables
 	RC collectCounterValues(unsigned &readPageCount, unsigned &writePageCount, unsigned &appendPageCount);
 
+    RC IXFileHandle::readPage( pageNumber pagenum, void *data );
+    RC IXFileHandle::writePage( pageNumber pagenum, void *data );
+    RC IXFileHandle::appendPage( void *data );
+
 };
 
 #endif

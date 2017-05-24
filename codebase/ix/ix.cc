@@ -141,9 +141,17 @@ RC IXFileHandle::collectCounterValues(unsigned &readPageCount, unsigned &writePa
     return 0;
 }
 
+RC IXFileHandle::readPage( pageNumber pagenum, void *data )
+    ixReadPageCounter++;
 
+    return ixfh.readPage(pagenum, data);
 
-NodeHeader IndexManager::createNewLeaf()
-{
+RC IXFileHandle::writePage( pageNumber pagenum, void *data )
+    ixWritePageCounter++;
 
-}
+    return ixfh.writePage(pagenum, data);
+
+RC IXFileHandle::appendPage( void *data )
+    ixAppendPageCounter++
+
+    return ixfh.appendPage(data);
