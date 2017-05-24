@@ -142,16 +142,22 @@ RC IXFileHandle::collectCounterValues(unsigned &readPageCount, unsigned &writePa
 }
 
 RC IXFileHandle::readPage( pageNumber pagenum, void *data )
+{
     ixReadPageCounter++;
 
     return ixfh.readPage(pagenum, data);
+}
 
 RC IXFileHandle::writePage( pageNumber pagenum, void *data )
+{
     ixWritePageCounter++;
 
     return ixfh.writePage(pagenum, data);
+}
 
 RC IXFileHandle::appendPage( void *data )
+{
     ixAppendPageCounter++
 
     return ixfh.appendPage(data);
+}
